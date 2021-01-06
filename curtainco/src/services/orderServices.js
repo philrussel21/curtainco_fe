@@ -21,8 +21,14 @@ async function markOrderProcessed(id, updatedOrder) {
   return response;
 }
 
+async function sendRequestToPayPal(payload) {
+  const response = await api.post("/orders", payload);
+  console.log(response);
+  return response;
+}
 export {
   getAllOrders,
   createOrder,
-  markOrderProcessed
+  markOrderProcessed,
+  sendRequestToPayPal
 };
